@@ -3,16 +3,16 @@
 public class BudgetPlan_Trosak_Kategorija
 {
     //Podaci od Budget Plana (Trosak Kategorija)
-    public int ID { get; set; }
-    public decimal IznosKM { get; set; }
-    public decimal procenatPlana  { get; set; }
+    public int Id { get; set; }
+    public decimal IznosKm { get; set; }
+    public decimal ProcenatPlana  { get; set; }
     
     //FK-ovi
-    public int KategorijaTroskaID { get; set; }
-    public KategorijaTroska KategorijaTroska { get; set; }
+    public int KategorijaTroskaId { get; set; }
+    public KategorijaTroska KategorijaTroska { get; set; } = null!;
     
-    public int BudgetPlanID { get; set; }
-    public BudgetPlan BudgetPlan { get; set; }
-    
-    
+    public int BudgetPlanId { get; set; }
+    public BudgetPlan BudgetPlan { get; set; } = null!;
+
+
 }
