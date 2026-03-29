@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using BudgetApp.Data;
+using BudgetApp.Services;
 using BudgetApp.ViewModels;
 using BudgetApp.Views;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,11 +18,13 @@ public partial class App : Application
 
   
         services.AddDbContext<AppDbContext>();
+        services.AddScoped<KorisnikService>();
         services.AddScoped<LoginViewModel>();
         services.AddScoped<LoginView>();
         _serviceProvider = services.BuildServiceProvider();
         
-        
+
+
     }
 
     protected override void OnStartup(StartupEventArgs e)
