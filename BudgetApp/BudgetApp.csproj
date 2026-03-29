@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net9.0-windows</TargetFramework>
+        <TargetFramework>net10.0-windows</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
@@ -14,8 +14,6 @@
       <Folder Include="Repositories\" />
       <Folder Include="Services\" />
       <Folder Include="Validators\" />
-      <Folder Include="ViewModels\" />
-      <Folder Include="Views\" />
     </ItemGroup>
 
     <ItemGroup>
@@ -26,18 +24,25 @@
       <PackageReference Include="FluentValidation" Version="12.1.1" />
       <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-rc6.1" />
       <PackageReference Include="MaterialDesignThemes" Version="5.3.1" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.5" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.5" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.5">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.5" />
       <PackageReference Include="QuestPDF" Version="2026.2.4" />
       <PackageReference Include="Serilog" Version="4.3.2-dev-02419" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.5">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\LoginView.cs">
+        <DependentUpon>LoginView.xaml</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>
