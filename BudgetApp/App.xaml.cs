@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using BudgetApp.Data;
+using BudgetApp.Models;
 using BudgetApp.Services;
 using BudgetApp.ViewModels;
 using BudgetApp.Views;
@@ -17,7 +18,7 @@ public partial class App : Application
         var services = new ServiceCollection();
 
   
-        services.AddDbContext<AppDbContext>();
+        services.AddDbContext<AppDbContext>(ServiceLifetime.Singleton);
         services.AddScoped<KorisnikService>();
         services.AddScoped<LoginViewModel>();
         services.AddScoped<LoginView>();
@@ -30,6 +31,12 @@ public partial class App : Application
     protected override void OnStartup(StartupEventArgs e)
     {
         base.OnStartup(e);
+        //Automatski kreira bazu i tabele ako ne postoje
+        using var db =  new AppDbContext();
+        db.Database.EnsureCreated();
+        
+        
+        
         using var scope = _serviceProvider.CreateScope();
         var loginWindow = scope.ServiceProvider.GetRequiredService<LoginView>();
         loginWindow.Show();
